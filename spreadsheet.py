@@ -1,12 +1,13 @@
 from cell import Cell
 
+
 class Spreadsheet:
 
     def __init__(self, row: int, column: int) -> None:
         self.__row = row
         self.__column = column
         self.__table = [[Cell() for y in range(column)] for x in range(row)]
-    
+
     def get_table(self):
         return self.__table
 
@@ -21,7 +22,6 @@ class Spreadsheet:
 
     def removeRow(self, number: int) -> None:
         del self.__table[number]
-
 
     def addColumn(self, number: int) -> None:
         [self.__table[i].insert(number, Cell()) for i in range(self.__row)]

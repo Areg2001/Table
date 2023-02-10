@@ -1,4 +1,4 @@
-from datetime import date
+import datetime
 
 colors: dict = {
     "red": 1,
@@ -26,8 +26,8 @@ class Cell:
         return self.__value
 
     def set_color(self, new_color: str):
-        if new_color in list(colors.values()):
-            self.__color = new_color
+        if new_color in list(colors.keys()):
+            self.__color = colors[new_color]
 
     def get_color(self) -> int:
         return self.__color
@@ -39,12 +39,7 @@ class Cell:
         return float(self.__value)
 
     def toDate(self):
-        try:
-            date(int(self.__value[:4]), int(self.__value[5:7], int(self.__value[8:])))
-
-        except:
-            "This value can not be converted to date."    
+        return datetime.datetime.strptime(self.__value, "%Y-%m-%d")
 
     def reset(self):
-        self.__value = ""   
-
+        self.__value = ""
