@@ -10,7 +10,7 @@ class Spreadsheet:
     def get_table(self):
         return self.__table
 
-    def setCellAt(self, row: int, column: int, value: int) -> None:
+    def setCellAt(self, row: int, column: int, value: str) -> None:
         self.__table[row][column].set_value(value)
 
     def getCellAt(self, row: int, column: int) -> str:
